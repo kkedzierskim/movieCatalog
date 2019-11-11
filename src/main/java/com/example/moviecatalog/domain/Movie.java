@@ -19,25 +19,18 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String tittle;
     private String description;
     private String production;
     private Integer boxOffice;
     private LocalDate releaseDate;
 
-    public Movie(String description, String production, Integer boxOffice, LocalDate releaseDate, Genre genre) {
-        this.description = description;
-        this.production = production;
-        this.boxOffice = boxOffice;
-        this.releaseDate = releaseDate;
-        this.genre = genre;
-    }
 
     @OneToMany(mappedBy = "movie")
     private Set<Award> awards = new HashSet<>();
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "movie")
     private Set<Actor> actors = new HashSet<>();
 
 

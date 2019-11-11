@@ -8,4 +8,6 @@ import java.util.Set;
 public interface MovieService {
 
    Set<Movie> getMovies();
+
+   Movie getMovieById(Long id);
 }

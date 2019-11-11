@@ -5,6 +5,7 @@ import com.example.moviecatalog.repositories.MovieRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -20,5 +21,16 @@ public class MovieServiceImpl implements MovieService {
         Set<Movie> movieSet = new HashSet<>();
         movieRepository.findAll().iterator().forEachRemaining(movieSet::add);
         return movieSet;
+    }
+
+    @Override
+    public Movie getMovieById(Long id) {
+
+        Optional<Movie> optionalMovie = movieRepository.findById(id);
+
+        if (!optionalMovie.isPresent()){
+           throw new RuntimeException("no movie with id = " + id);
+        }
+        return optionalMovie.get();
     }
 }
