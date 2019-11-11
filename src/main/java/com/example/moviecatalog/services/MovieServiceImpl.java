@@ -9,7 +9,6 @@ import java.util.Set;
 
 @Service
 public class MovieServiceImpl implements MovieService {
-
     private final MovieRepository movieRepository;
 
     public MovieServiceImpl(MovieRepository movieRepository) {

@@ -1,8 +1,7 @@
 package com.example.moviecatalog.domain;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,7 +10,10 @@ import java.util.Set;
 
 @Getter
 @Setter
-@Entity
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
+@Entity(name = "movies")
 public class Movie {
 
     @Id
@@ -23,12 +25,19 @@ public class Movie {
     private Integer boxOffice;
     private LocalDate releaseDate;
 
+    public Movie(String description, String production, Integer boxOffice, LocalDate releaseDate, Genre genre) {
+        this.description = description;
+        this.production = production;
+        this.boxOffice = boxOffice;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+    }
 
     @OneToMany(mappedBy = "movie")
     private Set<Award> awards = new HashSet<>();
 
 
-    @ManyToMany
+    @OneToMany
     private Set<Actor> actors = new HashSet<>();
 
 
@@ -37,4 +46,12 @@ public class Movie {
 
     @Lob
     private Byte[] image;
+
+    public Movie addActor(Actor actor){
+        actor.setMovie(this);
+        this.actors.add(actor);
+        return this;
+    }
+
+
 }
