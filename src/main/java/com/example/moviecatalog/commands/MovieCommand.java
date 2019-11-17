@@ -21,6 +21,6 @@ public class MovieCommand {
     private LocalDate releaseDate;
     private Genre genre;
     private Byte[] image;
-    private Set<Actor> actors = new HashSet<>();
-    private Set<Award> awards = new HashSet<>();
+    private Set<ActorCommand> actors = new HashSet<>();
+    private Set<AwardCommand> awards = new HashSet<>();
 }

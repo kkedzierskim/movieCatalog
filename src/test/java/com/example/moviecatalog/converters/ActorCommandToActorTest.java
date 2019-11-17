@@ -9,8 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ActorCommandToActorTest {
 
-    private static final Long LONG_VALUE = 1L;
+
+    private static final Long ACTOR_ID = 1L;
+    private static final Long MOVIE_ID = 1L;
     private static final String FIRST_NAME = "John";
+    private static final String LAST_NAME = "Wick";
+    private static final String FILM_NAME = "John Wick";
     ActorCommandToActor converter;
 
     @BeforeEach
@@ -32,15 +36,23 @@ class ActorCommandToActorTest {
     void convert() {
         //given
         ActorCommand command = new ActorCommand();
-        command.setId(LONG_VALUE);
+        command.setId(ACTOR_ID);
         command.setFirstName(FIRST_NAME);
+        command.setLastName(LAST_NAME);
+        command.setFilmName(FILM_NAME);
+        command.setMovieCommandId(MOVIE_ID);
 
         //when
         Actor actor = converter.convert(command);
 
         //then
         assertNotNull(actor);
-        assertEquals(LONG_VALUE, actor.getId());
+        assertEquals(ACTOR_ID, actor.getId());
         assertEquals(FIRST_NAME, actor.getFirstName());
+        assertEquals(LAST_NAME, actor.getLastName());
+        assertEquals(FILM_NAME, actor.getFilmName());
+        assertEquals(MOVIE_ID, actor.getMovie().getId());
     }
 }
+
+

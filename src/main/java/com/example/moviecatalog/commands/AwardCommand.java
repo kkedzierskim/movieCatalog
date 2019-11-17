@@ -12,5 +12,7 @@ public class AwardCommand {
 
     private Long id;
     private String description;
+    private Long movieCommandId;
+
 
 }

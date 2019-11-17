@@ -23,6 +23,10 @@ public class AwardToAwardCommand implements Converter<Award, AwardCommand> {
         awardCommand.setId(source.getId());
         awardCommand.setDescription(source.getDescription());
 
+        if (source.getMovie() != null){
+            awardCommand.setMovieCommandId(source.getMovie().getId());
+        }
+
         return awardCommand;
     }
 }

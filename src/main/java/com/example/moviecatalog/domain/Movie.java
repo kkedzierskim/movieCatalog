@@ -49,4 +49,11 @@ public class Movie {
     }
 
 
+    public Movie addAward(Award award){
+        award.setMovie(this);
+        this.awards.add(award);
+        return this;
+    }
+
+
 }

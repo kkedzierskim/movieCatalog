@@ -3,6 +3,7 @@ package com.example.moviecatalog.converters;
 
 import com.example.moviecatalog.commands.ActorCommand;
 import com.example.moviecatalog.domain.Actor;
+import com.example.moviecatalog.domain.Movie;
 import com.sun.istack.Nullable;
 import lombok.Synchronized;
 import org.hibernate.annotations.Synchronize;
@@ -25,6 +26,10 @@ public class ActorToActorCommand implements Converter<Actor, ActorCommand> {
         actorCommand.setFilmName(source.getFilmName());
         actorCommand.setFirstName(source.getFirstName());
         actorCommand.setLastName(source.getLastName());
+
+        if(source.getMovie() != null){
+            actorCommand.setMovieCommandId(source.getMovie().getId());
+        }
 
         return actorCommand;
     }
