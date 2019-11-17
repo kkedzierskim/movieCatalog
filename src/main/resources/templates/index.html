@@ -31,7 +31,7 @@
                             <thead class="thead-inverse">
                             <tr>
                                 <th>ID</th>
-                                <th>Description</th>
+                                <th>Title</th>
                                 <th>Genre</th>
                                 <th>Production</th>
                                 <th>View</th>
@@ -40,20 +40,20 @@
                             <tr th:remove="all">
                                 <td>1</td>
                                 <td>Movie 1</td>
-                                <td>Movie 1 Description</td>
+                                <td>Movie 1 title</td>
                                 <td>Movie 1 Production</td>
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:remove="all">
                                 <td>2</td>
-                                <td>Movie 2</td>
-                                <td>Movie 2 Description</td>
+                                <td>Movie 2 </td>
+                                <td>Movie 2 title</td>
                                 <td>Movie 2 Production</td>
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:each="movie : ${movies}">
                                 <td th:text="${movie.id}">1</td>
-                                <td th:text="${movie.description}">Opis filmu</td>
+                                <td th:text="${movie.title}">Opis filmu</td>
                                 <td th:text="${movie.genre}">gatunek</td>
                                 <td th:text="${movie.production}">produkcja</td>
                                 <td><a href="#" th:href="@{'/movie/' + ${movie.id} + '/show'}">View</a></td>

@@ -26,10 +26,12 @@ public class Movie {
     private LocalDate releaseDate;
 
 
+    @Builder.Default
     @OneToMany(mappedBy = "movie")
     private Set<Award> awards = new HashSet<>();
 
 
+    @Builder.Default
     @OneToMany(mappedBy = "movie")
     private Set<Actor> actors = new HashSet<>();
 

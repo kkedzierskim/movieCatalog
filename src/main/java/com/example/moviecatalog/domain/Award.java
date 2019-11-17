@@ -1,7 +1,5 @@
 package com.example.moviecatalog.domain;
-
 import lombok.*;
-
 import javax.persistence.*;
 
 
