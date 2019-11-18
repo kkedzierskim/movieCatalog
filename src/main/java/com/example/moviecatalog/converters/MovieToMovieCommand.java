@@ -37,7 +37,7 @@ public class MovieToMovieCommand implements Converter<Movie, MovieCommand> {
         movieCommand.setImage(source.getImage());
         movieCommand.setProduction(source.getProduction());
         movieCommand.setReleaseDate(source.getReleaseDate());
-        movieCommand.setTittle(source.getTittle());
+        movieCommand.setTitle(source.getTitle());
 
         if (source.getActors() != null && source.getActors().size() > 0){
             source.getActors()

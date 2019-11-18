@@ -49,7 +49,7 @@ class MovieToMovieCommandTest {
         Movie movie = new Movie();
         movie.setId(MOVIE_ID);
         movie.setDescription(DESCRIPTION);
-        movie.setTittle(TITLE);
+        movie.setTitle(TITLE);
         movie.setReleaseDate(RELEASE_DATE);
         movie.setProduction(PRODUCTION);
         movie.setGenre(GENRE);
@@ -78,7 +78,7 @@ class MovieToMovieCommandTest {
         assertNotNull(movieCommand);
         assertEquals(MOVIE_ID, movieCommand.getId());
         assertEquals(DESCRIPTION, movieCommand.getDescription());
-        assertEquals(TITLE, movieCommand.getTittle());
+        assertEquals(TITLE, movieCommand.getTitle());
         assertEquals(RELEASE_DATE, movieCommand.getReleaseDate());
         assertEquals(PRODUCTION, movieCommand.getProduction());
         assertEquals(GENRE, movieCommand.getGenre());

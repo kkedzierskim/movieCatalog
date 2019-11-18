@@ -11,10 +11,11 @@ import javax.persistence.*;
 @Entity(name = "actors")
 public class Actor {
 
-    public Actor(String firstName, String lastName, String filmName) {
+    public Actor(String firstName, String lastName, String filmName, Movie movie) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.filmName = filmName;
+        this.movie = movie;
     }
 
     @Id
@@ -28,11 +29,6 @@ public class Actor {
     @ManyToOne
     private Movie movie;
 
-   /* public Movie getMovie() {
-        return movie;
-    }
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }*/
+
 }

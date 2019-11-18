@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 public class MovieCommand {
     private Long id;
-    private String tittle;
+    private String title;
     private String description;
     private String production;
     private Integer boxOffice;

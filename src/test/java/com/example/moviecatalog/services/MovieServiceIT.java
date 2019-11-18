@@ -39,11 +39,11 @@ class MovieServiceIT {
         MovieCommand testMovieCommand = movieToMovieCommand.convert(testMovie);
 
         //when
-        testMovieCommand.setTittle(NEW_TITLE);
+        testMovieCommand.setTitle(NEW_TITLE);
         MovieCommand savedMovieCommand = movieService.saveMovieCommand(testMovieCommand);
 
         //then
-        assertEquals(NEW_TITLE, savedMovieCommand.getTittle());
+        assertEquals(NEW_TITLE, savedMovieCommand.getTitle());
         assertEquals(testMovie.getId(), savedMovieCommand.getId());
         assertEquals(testMovie.getActors().size(), savedMovieCommand.getActors().size());
     }

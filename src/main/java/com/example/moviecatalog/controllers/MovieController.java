@@ -1,13 +1,12 @@
 package com.example.moviecatalog.controllers;
 
 
+import com.example.moviecatalog.commands.MovieCommand;
 import com.example.moviecatalog.domain.Movie;
 import com.example.moviecatalog.services.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MovieController {
@@ -26,4 +25,20 @@ public class MovieController {
 
         return "movie/show";
     }
+
+    @GetMapping("movie/new")
+    public String newMovie(Model model){
+        model.addAttribute("movie", new MovieCommand());
+
+        return "movie/movieform";
+    }
+
+    @PostMapping("movie")
+    public String saveOrUpdate(@ModelAttribute MovieCommand command){
+        MovieCommand savedMovieCommand = movieService.saveMovieCommand(command);
+
+        return "redirect:/movie/show/" + savedMovieCommand.getId();
+    }
+
+
 }
