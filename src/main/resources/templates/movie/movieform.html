@@ -45,12 +45,12 @@
                                     <input type="text" class="form-control" th:field="*{boxOffice}"/>
                                 </div>
                                 <div class="col-md-3 form-group">
-                                    <!--<label>Genre:</label>
+                                    <label>Genre:</label>
                                     <select class="form-control" th:field="*{genre}">
-                                        <option th:each="genre : ${T(com.example.moviecatalog.domain.Genre)}"
+                                        <option th:each="genre : ${T(com.example.moviecatalog.domain.Genre).values()}"
                                                 th:value="${genre}"
                                                 th:text="${genre}"</option>
-                                    </select>-->
+                                    </select>
                                     <select class="form-control" th:remove="all">
                                         <option>Action</option>
                                         <option>Drama</option>
@@ -116,13 +116,13 @@
                         <div class="panel-heading">
                             <h1 class="panel-title">Description</h1>
                         </div>
-                       <!-- <div class="panel-body">
+                        <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <textarea class="form-control" rows="3" th:field="*{}"></textarea>
+                                    <textarea class="form-control" rows="3" th:field="*{description}"></textarea>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

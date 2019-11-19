@@ -55,11 +55,11 @@
                                 <td th:text="${movie.id}">1</td>
                                 <td th:text="${movie.title}">Tytul filmu</td>
                                 <td th:text="${movie.genre}">gatunek</td>
+
                                 <td th:text="${movie.production}">produkcja</td>
                                 <td><a href="#" th:href="@{'/movie/' + ${movie.id} + '/show'}">View</a></td>
-                                <!--<td>
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a></td>
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">Delete</a></td>-->
+                                <td><a href="#" th:href="@{'/movie/' + ${movie.id} + '/update'}">Update</a></td>
+                                <td><a href="#" th:href="@{'/movie/' + ${movie.id} + '/delete'}">Delete</a></td>
                             </tr>
                         </table>
                     </div>

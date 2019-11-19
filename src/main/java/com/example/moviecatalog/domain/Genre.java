@@ -2,7 +2,9 @@ package com.example.moviecatalog.domain;
 
 public enum Genre {
 
-    ACTION("ACTION"),
+    ACTION, ADVENTURE, COMEDY, DRAMA, FANTASY, HISTORICAL, HORROR, POLITICAL, ROMANCE, SOCIAL, THRILLER, WESTERN;
+
+    /*ACTION("ACTION"),
     ADVENTURE("ADVENTURE"),
     COMEDY("COMEDY"),
     DRAMA("DRAMA"),
@@ -23,6 +25,6 @@ public enum Genre {
 
     public String getDisplayValue() {
         return displayValue;
-    }
+    }*/
 
 }

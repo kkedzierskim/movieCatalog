@@ -33,12 +33,28 @@ public class MovieController {
         return "movie/movieform";
     }
 
+
+
+    @GetMapping("movie/{movieId}/update")
+    public String updateMovie(@PathVariable String movieId, Model model){
+
+        MovieCommand movieCommand = movieService.getMovieCommandById(Long.valueOf(movieId));
+        model.addAttribute("movie", movieCommand);
+
+        return "movie/movieform";
+    }
+
     @PostMapping("movie")
     public String saveOrUpdate(@ModelAttribute MovieCommand command){
         MovieCommand savedMovieCommand = movieService.saveMovieCommand(command);
 
-        return "redirect:/movie/show/" + savedMovieCommand.getId();
+        return "redirect:/movie/" + savedMovieCommand.getId() + "/show";
     }
 
+    @GetMapping("movie/{movieId}/delete")
+    public String deleteMovie(@PathVariable String movieId){
+        movieService.deleteMovieById(Long.valueOf(movieId));
+        return "redirect:/index";
+    }
 
 }

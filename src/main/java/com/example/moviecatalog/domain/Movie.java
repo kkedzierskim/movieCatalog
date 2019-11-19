@@ -27,12 +27,12 @@ public class Movie {
 
 
     @Builder.Default
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private Set<Award> awards = new HashSet<>();
 
 
     @Builder.Default
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private Set<Actor> actors = new HashSet<>();
 
 
