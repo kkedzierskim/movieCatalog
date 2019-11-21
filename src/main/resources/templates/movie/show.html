@@ -47,7 +47,7 @@
                                 <h5>Release date:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p th:text="${(movie.releaseDate) +  '  Min'}">30 min</p>
+                                <p th:text="${(movie.releaseDate)}">30 min</p>
                             </div>
                             <div class="col-md-3">
                                 <h5>Production:</h5>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-md-1">
                                 <a class="btn btn-default" href="#"
-                                   th:href="@{'/movie/' + ${movie.id} + '/actors'}" role="button">View</a>
+                                   th:href="@{'/movie/' + ${movie.id} + '/actor'}" role="button">View</a>
                             </div>
                         </div>
                     </div>

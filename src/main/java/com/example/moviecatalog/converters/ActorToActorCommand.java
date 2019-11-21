@@ -3,10 +3,8 @@ package com.example.moviecatalog.converters;
 
 import com.example.moviecatalog.commands.ActorCommand;
 import com.example.moviecatalog.domain.Actor;
-import com.example.moviecatalog.domain.Movie;
 import com.sun.istack.Nullable;
 import lombok.Synchronized;
-import org.hibernate.annotations.Synchronize;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
