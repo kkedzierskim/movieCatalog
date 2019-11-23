@@ -23,7 +23,15 @@
             <div class="panel panel-primary">
 
                 <div class="panel-heading">
-                    <h1 class="panel-title">Actor</h1>
+                    <div class="row">
+                        <div class="col-md-11 ">
+                            <h1 class="panel-title" th:text="${(movie.title) + ' ' + 'Actor'}">movie Actor </h1>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn btn-default" href="#" th:href="@{'/movie/' + ${movie.id} + '/actor'}"
+                               role="button">Vie all actors</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
 
