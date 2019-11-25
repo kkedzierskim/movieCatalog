@@ -23,32 +23,19 @@
             <div class="panel panel-primary">
 
                 <div class="panel-heading">
-                    <h1 class="panel-title">My Favourite Movies</h1>
+                    <div class="row">
+                        <div class="col-md-11 ">
+                            <h1 class="panel-title">My Favourite Movies</h1>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn btn-default" href="#" th:href="@{'/movie//new'}" role="button">New</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive" th:if="${not #lists.isEmpty(movies)}">
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
-                            <tr>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Genre</th>
-                                <th>Production</th>
-                            </tr>
-                            </thead>
-                            <tr th:remove="all">
-                                <td>1</td>
-                                <td>Movie 1</td>
-                                <td>Movie 1 title</td>
-                                <td>Movie 1 Production</td>
-                            </tr>
-                            <tr th:remove="all">
-                                <td>2</td>
-                                <td>Movie 2 </td>
-                                <td>Movie 2 title</td>
-                                <td>Movie 2 Production</td>
-                                <td><a href="#">View</a></td>
-                            </tr>
                             <tr th:each="movie : ${movies}">
                                 <td th:text="${movie.id}">1</td>
                                 <td th:text="${movie.title}">Tytul filmu</td>

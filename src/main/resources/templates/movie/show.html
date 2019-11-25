@@ -32,18 +32,14 @@
                                 <a class="btn btn-default" href="#"
                                    th:href="@{'/movie/' + ${movie.id} + '/image'}" role="button">Change Image</a>
                             </div>
-                            <div class="col-md-1">
-                                <a class="btn btn-default" href="#" th:href="@{'/movie/new'}" role="button">New</a>
-                            </div>
                         </div>
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                           <!-- <div class="col-md-12">
-                                <img src="../../static/images/guacamole400x400WithX.jpg"
-                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
+                            <div class="col-md-12">
+                                <img th:src="@{'/movie/' + ${movie.id} + '/movieimage'}"
                                      width="200" height="200">
-                            </div>-->
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
