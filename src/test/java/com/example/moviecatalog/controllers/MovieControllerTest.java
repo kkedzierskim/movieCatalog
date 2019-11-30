@@ -31,7 +31,9 @@ class MovieControllerTest {
     void setUp() {
         MockitoAnnotations.initMocks(this);
         movieController = new MovieController(movieService);
-        mockMvc = MockMvcBuilders.standaloneSetup(movieController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(movieController)
+                .setControllerAdvice(new ControllerExceptionHandler())
+                .build();
     }
 
     @Test
@@ -110,5 +112,14 @@ class MovieControllerTest {
         mockMvc.perform(get("/movie/1/show"))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("404error"));
+    }
+    @Test
+    void testGetMovieNumberFormatException() throws Exception{
+        //when
+        when(movieService.getMovieById(anyLong())).thenThrow(NumberFormatException.class);
+        //then
+        mockMvc.perform(get("/movie/dupa/show"))
+                .andExpect(status().isBadRequest())
+                .andExpect(view().name("400error"));
     }
 }

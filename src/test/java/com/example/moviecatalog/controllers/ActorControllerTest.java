@@ -28,7 +28,9 @@ class ActorControllerTest {
     void setUp() {
         MockitoAnnotations.initMocks(this);
         actorController = new ActorController(movieService, actorService);
-        mockMvc = MockMvcBuilders.standaloneSetup(actorController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(actorController)
+                .setControllerAdvice(new ControllerExceptionHandler())
+                .build();
     }
 
     @Test
