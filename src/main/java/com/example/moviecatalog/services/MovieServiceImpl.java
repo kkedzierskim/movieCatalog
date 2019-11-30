@@ -4,6 +4,7 @@ import com.example.moviecatalog.commands.MovieCommand;
 import com.example.moviecatalog.converters.MovieCommandToMovie;
 import com.example.moviecatalog.converters.MovieToMovieCommand;
 import com.example.moviecatalog.domain.Movie;
+import com.example.moviecatalog.exceptions.NotFoundException;
 import com.example.moviecatalog.repositories.MovieRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,7 @@ public class MovieServiceImpl implements MovieService {
         Optional<Movie> optionalMovie = movieRepository.findById(id);
 
         if (!optionalMovie.isPresent()) {
-            throw new RuntimeException("no movie with id = " + id);
+            throw new NotFoundException("no movie with id = " + id);
         }
         return optionalMovie.get();
     }

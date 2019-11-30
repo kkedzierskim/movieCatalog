@@ -4,6 +4,7 @@ import com.example.moviecatalog.commands.MovieCommand;
 import com.example.moviecatalog.converters.MovieCommandToMovie;
 import com.example.moviecatalog.converters.MovieToMovieCommand;
 import com.example.moviecatalog.domain.Movie;
+import com.example.moviecatalog.exceptions.NotFoundException;
 import com.example.moviecatalog.repositories.MovieRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
@@ -105,5 +107,15 @@ class MovieServiceImplTest {
         verify(movieRepository,times(1)).deleteById(anyLong());
         verify(movieRepository,times(1)).findById(anyLong());
         assertEquals(idToDelete, 4L);
+    }
+
+    @Test()
+    void getMovieByIdTestNotFound() {
+        //given
+        Optional<Movie> movieOptional = Optional.empty();
+        //when
+        when(movieRepository.findById(anyLong())).thenReturn(movieOptional);
+        //then
+        assertThrows(NotFoundException.class, () -> movieService.getMovieById(1L));
     }
 }
