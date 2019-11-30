@@ -2,6 +2,7 @@ package com.example.moviecatalog.controllers;
 
 import com.example.moviecatalog.commands.MovieCommand;
 import com.example.moviecatalog.domain.Movie;
+import com.example.moviecatalog.exceptions.NotFoundException;
 import com.example.moviecatalog.services.MovieService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -99,5 +100,15 @@ class MovieControllerTest {
                 .andExpect(view().name("redirect:/index"));
         verify(movieService, times(1)).deleteMovieById(anyLong());
 
+    }
+
+    @Test
+    void testGetMovieNotFound() throws Exception{
+        //when
+        when(movieService.getMovieById(anyLong())).thenThrow(NotFoundException.class);
+        //then
+        mockMvc.perform(get("/movie/1/show"))
+                .andExpect(status().isNotFound())
+                .andExpect(view().name("404error"));
     }
 }

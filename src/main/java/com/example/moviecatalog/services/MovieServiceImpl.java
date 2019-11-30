@@ -42,7 +42,7 @@ public class MovieServiceImpl implements MovieService {
         Optional<Movie> optionalMovie = movieRepository.findById(id);
 
         if (!optionalMovie.isPresent()) {
-            throw new NotFoundException("no movie with id = " + id);
+            throw new NotFoundException("Movie not found with id: " + id);
         }
         return optionalMovie.get();
     }

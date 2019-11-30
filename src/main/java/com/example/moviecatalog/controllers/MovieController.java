@@ -3,11 +3,15 @@ package com.example.moviecatalog.controllers;
 
 import com.example.moviecatalog.commands.MovieCommand;
 import com.example.moviecatalog.domain.Movie;
+import com.example.moviecatalog.exceptions.NotFoundException;
 import com.example.moviecatalog.services.MovieService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.ModelAndView;
+@Slf4j
 @Controller
 public class MovieController {
 
@@ -55,6 +59,26 @@ public class MovieController {
     public String deleteMovie(@PathVariable String movieId){
         movieService.deleteMovieById(Long.valueOf(movieId));
         return "redirect:/index";
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException.class)
+    public ModelAndView handleNotFoundException(Exception exception){
+        log.error(exception.getMessage());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("404error");
+        modelAndView.addObject("exception", exception);
+        return modelAndView;
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(NumberFormatException.class)
+    public ModelAndView handleNumberFormatException(Exception exception){
+        log.error(exception.getMessage());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("400error");
+        modelAndView.addObject("exception", exception);
+        return modelAndView;
     }
 
 }
