@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
+
 @Slf4j
 @Controller
 public class MovieController {
@@ -49,7 +52,7 @@ public class MovieController {
     }
 
     @PostMapping("movie")
-    public String saveOrUpdate(@ModelAttribute MovieCommand command){
+    public String saveOrUpdate(@Valid @ModelAttribute MovieCommand command){
         MovieCommand savedMovieCommand = movieService.saveMovieCommand(command);
 
         return "redirect:/movie/" + savedMovieCommand.getId() + "/show";
