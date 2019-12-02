@@ -62,7 +62,7 @@ class MovieControllerTest {
     }
 
     @Test
-    void testPostNewRecipeForm() throws Exception{
+    void testPostNewMovieForm() throws Exception{
         //given
         MovieCommand movieCommand = new MovieCommand();
         movieCommand.setId(3L);
@@ -78,6 +78,25 @@ class MovieControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/movie/3/show"));
     }
+
+    @Test
+    void testPostNewMovieFormValidationFail() throws Exception{
+        //given
+        MovieCommand movieCommand = new MovieCommand();
+        movieCommand.setId(3L);
+
+        //when
+        when(movieService.saveMovieCommand(any())).thenReturn(movieCommand);
+
+        //then
+        mockMvc.perform(post("/movie")
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .param("id", ""))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("movie"))
+                .andExpect(view().name("movie/movieform"));
+    }
+
 
     @Test
     void testGetUpdatedView() throws Exception{

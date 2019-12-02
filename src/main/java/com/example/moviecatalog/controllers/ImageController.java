@@ -1,5 +1,6 @@
-package com.example.moviecatalog.commands;
+package com.example.moviecatalog.controllers;
 
+import com.example.moviecatalog.commands.MovieCommand;
 import com.example.moviecatalog.services.ImageService;
 import com.example.moviecatalog.services.MovieService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;

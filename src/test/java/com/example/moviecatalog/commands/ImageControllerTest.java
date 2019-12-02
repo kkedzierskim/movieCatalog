@@ -1,4 +1,5 @@
 package com.example.moviecatalog.commands;
+import com.example.moviecatalog.controllers.ImageController;
 import com.example.moviecatalog.services.ImageService;
 import com.example.moviecatalog.services.MovieService;
 import org.junit.jupiter.api.BeforeEach;
@@ -62,7 +63,7 @@ class ImageControllerTest {
         public void handleImagePost() throws Exception {
             MockMultipartFile multipartFile =
                     new MockMultipartFile("imagefile", "testing.txt", "text/plain",
-                            "Spring Framework Guru".getBytes());
+                            "MovieCatalog".getBytes());
 
             mockMvc.perform(multipart("/movie/1/image").file(multipartFile))
                     .andExpect(status().is3xxRedirection())

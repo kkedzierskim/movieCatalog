@@ -1,7 +1,5 @@
 package com.example.moviecatalog.commands;
 
-import com.example.moviecatalog.domain.Actor;
-import com.example.moviecatalog.domain.Award;
 import com.example.moviecatalog.domain.Genre;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,17 +16,20 @@ import java.util.Set;
 public class MovieCommand {
     private Long id;
 
+
     @NotBlank
     @Size(min = 1, max = 255)
     private String title;
 
+
     @NotBlank
-    @Size(min = 1, max = 255)
+    @Size(min = 20, max = 1000)
     private String description;
 
     @NotBlank
     @Size(min = 1, max = 255)
     private String production;
+
 
     @Min(1)
     private Integer boxOffice;
