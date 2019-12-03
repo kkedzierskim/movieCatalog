@@ -23,7 +23,7 @@ public class MovieCommand {
 
 
     @NotBlank
-    @Size(min = 20, max = 1000)
+    @Size(min = 20, max = 255)
     private String description;
 
     @NotBlank
