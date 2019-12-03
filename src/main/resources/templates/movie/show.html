@@ -118,7 +118,7 @@
                             </div>
                             <div class="col-md-1">
                                 <a class="btn btn-default" href="#"
-                                   th:href="@{'/movie/' + ${movie.id} + '/actors'}" role="button">View</a>
+                                   th:href="@{'/movie/' + ${movie.id} + '/award'}" role="button">View</a>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                                     <li th:remove="all">award 1</li>
                                     <li th:remove="all">award 2</li>
                                     <li th:each="award : ${movie.awards}"
-                                        th:text="${(award.getDescription())}">award description</li>
+                                        th:text="${(#strings.abbreviate(award.description,80))}">award description</li>
                                 </ul>
                             </div>
                         </div>

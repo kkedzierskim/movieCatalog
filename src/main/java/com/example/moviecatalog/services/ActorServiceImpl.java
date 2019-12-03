@@ -82,7 +82,6 @@ public class ActorServiceImpl implements ActorService {
                 actorFound.setFilmName(command.getFilmName());
 
             } else {
-                //add new Ingredient
                 Actor newActor = actorCommandToActor.convert(command);
                 newActor.setMovie(movie);
                 movie.addActor(newActor);
@@ -94,9 +93,8 @@ public class ActorServiceImpl implements ActorService {
                     .filter(movieActor -> movieActor.getId().equals(command.getId()))
                     .findFirst();
 
-            //check by description
+
             if (!savedActorOptional.isPresent()) {
-                //not totally safe... But best guess
                 savedActorOptional = savedMovie.getActors().stream()
                         .filter(movieActor -> movieActor.getFirstName().equals(command.getFirstName()))
                         .filter(movieActor -> movieActor.getLastName().equals(command.getLastName()))
@@ -113,7 +111,7 @@ public class ActorServiceImpl implements ActorService {
     @Override
     public void deleteById(Long movieId, Long idToDelete) {
 
-        log.debug("Deleting ingredient: " + movieId + ":" + idToDelete);
+        log.debug("Deleting actor: " + idToDelete);
 
         Optional<Movie> movieOptional = movieRepository.findById(movieId);
 
@@ -136,7 +134,7 @@ public class ActorServiceImpl implements ActorService {
                 actorRepository.deleteById(idToDelete);
             }
         } else {
-            log.debug("Recipe Id Not found. Id:" + movieId);
+            log.debug("movie Id Not found. Id:" + movieId);
         }
     }
 }

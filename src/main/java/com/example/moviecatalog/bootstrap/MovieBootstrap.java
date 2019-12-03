@@ -108,7 +108,7 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         gladiatorActors.add(gladiatorActor3);
 
         Award oscar = Award.builder()
-                .description("Oscar Award - best Actor in 'Green Mile movie' ")
+                .description("Oscar Award - best Actor in 'Green Mile movie'Oscar Award - best Actor in 'Green Mile movie'Oscar Award - best Actor in 'Green Mile movie'Oscar Award - best Actor in 'Green Mile movie' ")
                 .movie(greenMile)
                 .build();
         Set<Award> greenMileAwards = new HashSet<>();
