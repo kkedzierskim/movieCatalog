@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="UTF-8"/>
+    <title>Movie Catalog</title>
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+          href="https://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet" media="screen"/>
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet"
+   href="../static/css/dashboard.css">
+
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"> -->
+</head>
+
+
+<div th:fragment="navbar">
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/}">Movie Catalog</a>
+        <div class="col">
+            <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/movie/new}" role="button">Add new movie</a>
+        </div>
+
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <!--                todo dodać imie z usera-->
+                <a class="nav-link" th:href="@{/user}">Witaj user.</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" th:href="@{/logout}">Wyloguj</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div th:fragment="navigation (homeCurr, listCurr, searchCurr, top10Curr, categoriesCurr)">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" th:href="@{/}">
+                                <span data-feather="home"></span>
+                                Home Page<span class="sr-only"><th:block th:text="${homeCurr}"></th:block></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/movie/movielist}">
+                                <span data-feather="list"></span>
+                                 List of movies<th:block th:text="${listCurr}"></th:block>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/movie/search}">
+                                <span data-feather="trello"></span>
+                                Search movie<th:block th:text="${searchCurr}"></th:block>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/movie/top10}">
+                                <span data-feather="tv"></span>
+                                Top 10 movies<th:block th:text="${top10Curr}"></th:block>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/movie/categories}">
+                                <span data-feather="tv"></span>
+                                Categories <th:block th:text="${categoriesCurr}"></th:block>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+<div th:fragment="footer">
+
+    <script src="https://cdn.jsdelivr.net/webjars/jquery/3.4.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.4.1/jquery.min.js}" content="text/javascript">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.js"
+            th:src="@{/webjars/popper.js/1.15.0/umd/popper.js}" content="text/javascript">
+    </script>
+    <script src="https://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}" content="text/javascript">
+    </script>
+
+
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+
+</div>
+</body>
+</html>
