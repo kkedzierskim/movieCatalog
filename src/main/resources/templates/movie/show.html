@@ -1,160 +1,157 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Movie Catalog</title>
+<!doctype html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
-          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+<head th:replace="fragments :: header"></head>
 
-    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
-</head>
 <body>
+<div th:replace="fragments :: navbar"></div>
 
-<nav class="navbar bg-info ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/index">Movie catalog</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-    </div>
-</nav>
-<div class="container-fluid" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="pannel-group">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h1 class="panel-title" th:text="${movie.title}">Movie title</h1>
-                            </div>
+<div th:replace="fragments :: navigation(homeCurr='', searchCurr='', listCurr='', top10Curr='', categoriesCurr='')"></div>
 
-
-                            <div class="col-md-1">
-                                <a class="btn btn-default" href="#"
-                                   th:href="@{'/movie/' + ${movie.id} + '/image'}" role="button">Change Image</a>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <div class="container-fluid" style="margin-top: 20px">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="pannel-group">
+                        <div class="panel panel-primary">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h1 class="card-title" th:text="${movie.title}">Movie title</h1>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="btn btn-dark" href="#"
+                                               th:href="@{'/movie/' + ${movie.id} + '/image'}" role="button">Change
+                                                Image</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img th:src="@{'/movie/' + ${movie.id} + '/movieimage'}"
+                                                 width="200" height="200">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Release date:</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p th:text="${(movie.releaseDate)}">30 min</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h5>Production:</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p th:text="${movie.production}">DRAMA</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Genre:</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p th:text="${movie.genre}">30 min</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h5>Boxoffice:</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p th:text="${movie.boxOffice}">box office</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img th:src="@{'/movie/' + ${movie.id} + '/movieimage'}"
-                                     width="200" height="200">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-10 ">
+                                        <h1 class="card-title">Actors</h1>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a class="btn btn-dark" href="#"
+                                           th:href="@{'/movie/' + ${movie.id} + '/actor'}" role="button">View all</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul>
+                                            <li th:remove="all">actor 1</li>
+                                            <li th:remove="all">actor 2</li>
+                                            <li th:each="actor : ${movie.actors}"
+                                                th:text="${(actor.getFirstName() +
+                                        ' ' + actor.getLastName())}">actor first name actor last name
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h5>Release date:</h5>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-10 ">
+                                        <h1 class="panel-title">Awards</h1>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a class="btn btn-dark" href="#"
+                                           th:href="@{'/movie/' + ${movie.id} + '/award'}" role="button">View all</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <p th:text="${(movie.releaseDate)}">30 min</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h5>Production:</h5>
-                            </div>
-                            <div class="col-md-3">
-                                <p th:text="${movie.production}">DRAMA</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h5>Genre:</h5>
-                            </div>
-                            <div class="col-md-3">
-                                <p th:text="${movie.genre}">30 min</p>
-                            </div>
-                            <div class="col-md-3">
-                                <h5>Boxoffice:</h5>
-                            </div>
-                            <div class="col-md-3">
-                                <p th:text="${movie.boxOffice}">box office</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-11 ">
-                                <h1 class="panel-title">Actors</h1>
-                            </div>
-                            <div class="col-md-1">
-                                <a class="btn btn-default" href="#"
-                                   th:href="@{'/movie/' + ${movie.id} + '/actor'}" role="button">View</a>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul>
+                                            <li th:remove="all">award 1</li>
+                                            <li th:remove="all">award 2</li>
+                                            <li th:each="award : ${movie.awards}"
+                                                th:text="${(#strings.abbreviate(award.description,80))}">award
+                                                description
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <ul>
-                                    <li th:remove="all">actor 1</li>
-                                    <li th:remove="all">actor 2</li>
-                                    <li th:each="actor : ${movie.actors}"
-                                        th:text="${(actor.getFirstName() +
-                                        ' ' + actor.getLastName())}">actor first name actor last name</li>
-                                </ul>
+                        <div class="card">
+                            <div class="card-header">
+                                <h1 class="card-title">Description</h1>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-11 ">
-                                <h1 class="panel-title">Awards</h1>
-                            </div>
-                            <div class="col-md-1">
-                                <a class="btn btn-default" href="#"
-                                   th:href="@{'/movie/' + ${movie.id} + '/award'}" role="button">View</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <ul>
-                                    <li th:remove="all">award 1</li>
-                                    <li th:remove="all">award 2</li>
-                                    <li th:each="award : ${movie.awards}"
-                                        th:text="${(#strings.abbreviate(award.description,80))}">award description</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h1 class="panel-title">Description</h1>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p th:text="${movie.description}">Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                                    ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-                                    rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis
-                                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
-                                    vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
-                                    eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                                    Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-                                    Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-                                    Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
-                                    libero, sit amet adipiscing sem neque sed ipsum.</p>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p th:text="${movie.description}">Lorem ipsum dolor sit amet, consectetuer
+                                            adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+                                            natoque
+                                            penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+                                            quam felis,
+                                            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+                                            quis enim.
+                                            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim
+                                            justo,
+                                            rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
+                                            mollis
+                                            pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+                                            Aenean
+                                            vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
+                                            eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+                                            tellus.
+                                            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean
+                                            imperdiet.
+                                            Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam
+                                            eget dui.
+                                            Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam
+                                            semper
+                                            libero, sit amet adipiscing sem neque sed ipsum.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,6 +159,9 @@
             </div>
         </div>
     </div>
-</div>
+</main>
+
+
+<div th:replace="fragments :: footer"></div>
 </body>
 </html>

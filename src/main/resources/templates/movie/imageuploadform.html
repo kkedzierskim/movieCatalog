@@ -1,50 +1,45 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Movie Catalog</title>
+<!doctype html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
-          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+<head th:replace="fragments :: header"></head>
 
-    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
-</head>
 <body>
-<nav class="navbar bg-info ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/index">Movie catalog</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-    </div>
-</nav>
-<div class="container-fluid" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="pannel-group">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h1 class="panel-title">Upload a new movie image</h1>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <form  action="http:\\localhost" method="post" enctype="multipart/form-data"
-                                       th:action="@{'/movie/' + ${movie.getId()} + '/image'}">
-                                    <label class="control-label">Select File</label>
-                                    <input id="imagefile" name="imagefile" type="file" class="file">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+<div th:replace="fragments :: navbar"></div>
+
+<div th:replace="fragments :: navigation(homeCurr='', searchCurr='', listCurr='(current)', top10Curr='', categoriesCurr='')"></div>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <div class="container-fluid" style="margin-top: 20px">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">
+                                <h1 class="card-title">Upload a new movie image</h1>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form action="http:\\localhost" method="post" enctype="multipart/form-data"
+                                              th:action="@{'/movie/' + ${movie.getId()} + '/image'}">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="control-label" style="padding-right: 20px;">Select
+                                                        File</label>
+                                                    <input id="imagefile" name="imagefile" type="file" class="file">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button type="submit" style="padding: 5px; margin-top: 20px;"
+                                                            class="btn btn-primary btn-lg">Submit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,6 +47,9 @@
             </div>
         </div>
     </div>
-</div>
+</main>
+
+
+<div th:replace="fragments :: footer"></div>
 </body>
 </html>

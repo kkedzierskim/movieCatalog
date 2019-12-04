@@ -1,70 +1,57 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Movie Catalog</title>
+<!doctype html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
-          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+<head th:replace="fragments :: header"></head>
 
-    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
-</head>
 <body>
-<nav class="navbar bg-info ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/index">Movie catalog</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-    </div>
-</nav>
-<div class="container-fluid" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
+<div th:replace="fragments :: navbar"></div>
 
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-md-11 ">
-                            <h1 class="panel-title" th:text="${(movie.title) + ' ' + 'Award'}">movie award </h1>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn btn-default" href="#" th:href="@{'/movie/' + ${movie.id} + '/award'}"
-                               role="button">Vie all awards</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-body">
+<div th:replace="fragments :: navigation(homeCurr='', searchCurr='', listCurr='(current)', top10Curr='', categoriesCurr='')"></div>
 
-                    <div class="table-responsive">
-                        <table class="table table-hover ">
-                            <thead class="thead-inverse">
-                            <tr>
-                                <th>ID</th>
-                                <th>description</th>
-                            </tr>
-                            </thead>
-                            <tr>
-                                <td th:text="${award.id}"></td>
-                                <td th:text="${award.description} "></td>
-                            </tr>
-                        </table>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <div class="container-fluid" style="margin-top: 20px">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h1 class="card-title" th:text="${(movie.title) + ' ' + 'Award'}">movie award </h1>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn btn-dark" href="#" th:href="@{'/movie/' + ${movie.id} + '/show'}" role="button">Back to Movie</a>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn btn-dark" href="#" th:href="@{'/movie/' + ${movie.id} + '/award'}"
+                                       role="button">Vie all awards</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover ">
+                                    <thead class="thead-inverse">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>description</th>
+                                    </tr>
+                                    </thead>
+                                    <tr>
+                                        <td th:text="${award.id}"></td>
+                                        <td th:text="${award.description} "></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 
+
+<div th:replace="fragments :: footer"></div>
 </body>
 </html>
