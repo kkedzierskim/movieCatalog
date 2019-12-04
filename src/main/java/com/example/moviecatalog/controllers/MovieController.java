@@ -25,6 +25,12 @@ public class MovieController {
         this.movieService = movieService;
     }
 
+    @GetMapping("movie/movielist")
+    public String getIndexPage(Model model){
+        model.addAttribute("movies", movieService.getMovies());
+        return "movielist";
+    }
+
     @GetMapping("movie/{movieId}/show")
     public String showMovieById(@PathVariable String movieId, Model model){
 
