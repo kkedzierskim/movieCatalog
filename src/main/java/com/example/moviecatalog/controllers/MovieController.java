@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.Set;
 
 @Slf4j
 @Controller
@@ -70,6 +71,20 @@ public class MovieController {
         MovieCommand savedMovieCommand = movieService.saveMovieCommand(command);
 
         return "redirect:/movie/" + savedMovieCommand.getId() + "/show";
+    }
+    @PostMapping("/searchmovie")
+    public String searchMovie(@ModelAttribute(name="movieCommand") MovieCommand movieCommand, Model model) {
+
+            Set<Movie> movies = movieService.findMovieByTitle(movieCommand.getTitle());
+            model.addAttribute("movies", movies);
+
+            return "movie/moviesearch";
+    }
+
+    @GetMapping("movie/search")
+    public String searchMovie(Model model){
+        model.addAttribute("movieCommand", new MovieCommand());
+        return "movie/moviesearch";
     }
 
     @GetMapping("movie/{movieId}/delete")

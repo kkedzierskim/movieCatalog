@@ -17,8 +17,7 @@ public class IndexController {
     }
 
     @GetMapping({"/", "index", ""})
-    public String getIndexPage(Model model){
-        model.addAttribute("movies", movieService.getMovies());
+    public String getIndexPage(){
         return "index";
     }
 }
