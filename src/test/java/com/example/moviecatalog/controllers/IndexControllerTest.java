@@ -56,7 +56,7 @@ class IndexControllerTest {
 
 
         //then
-        assertEquals(controller.getIndexPage(model), "index");
+        assertEquals(controller.getIndexPage(), "index");
 
         verify(movieService, times(1)).getMovies();
         verify(model, times(1)).addAttribute(eq("movies"), anySet());

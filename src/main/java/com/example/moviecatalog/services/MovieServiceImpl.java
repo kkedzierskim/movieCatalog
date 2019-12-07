@@ -67,4 +67,11 @@ public class MovieServiceImpl implements MovieService {
     public void deleteMovieById(Long id) {
         movieRepository.deleteById(id);
     }
+
+    @Override
+    public Set<Movie> findMovieByTitle(String title) {
+        Set<Movie> movieSet = new HashSet<>();
+        movieRepository.findAllByTitleIgnoreCase(title).iterator().forEachRemaining(movieSet::add);
+        return movieSet;
+    }
 }

@@ -8,6 +8,8 @@ public interface MovieService {
 
    Set<Movie> getMovies();
 
+   Set<Movie> findMovieByTitle(String title);
+
    Movie getMovieById(Long id);
 
    MovieCommand saveMovieCommand(MovieCommand command);
