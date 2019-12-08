@@ -91,7 +91,7 @@ public class MovieController {
     @GetMapping("movie/{movieId}/delete")
     public String deleteMovie(@PathVariable String movieId){
         movieService.deleteMovieById(Long.valueOf(movieId));
-        return "redirect:/index";
+        return "redirect:/movie/movielist";
     }
 
     @GetMapping("movie/search/{movieGenre}")
