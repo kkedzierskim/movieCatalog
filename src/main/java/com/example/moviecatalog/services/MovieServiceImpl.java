@@ -3,6 +3,7 @@ package com.example.moviecatalog.services;
 import com.example.moviecatalog.commands.MovieCommand;
 import com.example.moviecatalog.converters.MovieCommandToMovie;
 import com.example.moviecatalog.converters.MovieToMovieCommand;
+import com.example.moviecatalog.domain.Genre;
 import com.example.moviecatalog.domain.Movie;
 import com.example.moviecatalog.exceptions.NotFoundException;
 import com.example.moviecatalog.repositories.MovieRepository;
@@ -73,5 +74,11 @@ public class MovieServiceImpl implements MovieService {
         Set<Movie> movieSet = new HashSet<>();
         movieRepository.findAllByTitleIgnoreCase(title).iterator().forEachRemaining(movieSet::add);
         return movieSet;
+    }
+
+    @Override
+    public Set<Movie> findMovieByGenre(Genre genre) {
+
+        return movieRepository.findAllByGenre(genre);
     }
 }
