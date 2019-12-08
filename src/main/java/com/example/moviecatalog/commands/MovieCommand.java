@@ -3,6 +3,7 @@ package com.example.moviecatalog.commands;
 import com.example.moviecatalog.domain.Genre;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -33,6 +34,8 @@ public class MovieCommand {
 
     @Min(1)
     private Integer boxOffice;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
     private Genre genre;
     private Byte[] image;

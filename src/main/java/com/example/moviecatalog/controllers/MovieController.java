@@ -2,6 +2,7 @@ package com.example.moviecatalog.controllers;
 
 
 import com.example.moviecatalog.commands.MovieCommand;
+import com.example.moviecatalog.domain.Genre;
 import com.example.moviecatalog.domain.Movie;
 import com.example.moviecatalog.exceptions.NotFoundException;
 import com.example.moviecatalog.services.MovieService;
@@ -91,6 +92,12 @@ public class MovieController {
     public String deleteMovie(@PathVariable String movieId){
         movieService.deleteMovieById(Long.valueOf(movieId));
         return "redirect:/index";
+    }
+
+    @GetMapping("movie/search/{movieGenre}")
+    public String browseMoviesByGenre(@PathVariable String movieGenre, Model model){
+        model.addAttribute("movies", movieService.findMovieByGenre(Genre.valueOf(movieGenre.toUpperCase())));
+        return "movie/moviecategory";
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)

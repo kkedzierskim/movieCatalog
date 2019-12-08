@@ -36,6 +36,19 @@
                                                 th:text="${err}"></li>
                                         </ul>
                                     </div>
+                                    <div class="col-md-6 form-group" th:class="${#fields.hasErrors('releaseDate')}
+                                        ? 'col-md-6 form-group has-error' : 'col-md-6 form-group'">
+                                        <label>Release date</label>
+                                        <input type="date" th:field="*{releaseDate}" class="form-control"
+                                               placeholder="RRRR-MM-DD"
+                                               th:errorclass="has-error">
+                                        <span class="help-block"
+                                              th:if="${#fields.hasErrors('releaseDate')}"></span>
+                                        <ul>
+                                            <li th:each="err : ${#fields.errors('releaseDate')}"
+                                                th:text="${err}"></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 form-group" th:class="${#fields.hasErrors('production')}
@@ -52,7 +65,7 @@
                                     </div>
                                     <div class="col-md-3 form-group" th:class="${#fields.hasErrors('boxOffice')}
                                 ? 'col-md-3 form-group has-error' : 'col-md-3 form-group'">
-                                        <label>Box office:</label>
+                                        <label>Box office($)</label>
                                         <input type="text" class="form-control" th:field="*{boxOffice}"
                                                th:errorclass="has-error"/>
                                         <span class="help-block"
@@ -100,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-dark">Submit</button>
                     </form>
                 </div>
             </div>

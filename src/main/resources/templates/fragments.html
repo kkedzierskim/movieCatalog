@@ -41,9 +41,10 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" th:href="@{/}">
+                            <a class="nav-link" th:href="@{/}">
                                 <span data-feather="home"></span>
-                                Home Page<span class="sr-only"><th:block th:text="${homeCurr}"></th:block></span>
+                                Home Page
+                                <th:block th:text="${homeCurr}"></th:block>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -67,12 +68,35 @@
                                 <th:block th:text="${addCurr}"></th:block>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/movie/categories}">
+                        <li class="active">
+                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle nav-link">
                                 <span data-feather="tv"></span>
                                 Browse by genre
                                 <th:block th:text="${categoriesCurr}"></th:block>
                             </a>
+                            <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <a th:href="@{/movie/search/action}" class="nav-link">Action</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/movie/search/adventure}" class="nav-link">Adventure</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/movie/search/comedy}" class="nav-link">Comedy</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/movie/search/drama}" class="nav-link">Drama</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/movie/search/horror}" class="nav-link">Horror</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/movie/search/social}" class="nav-link">Social</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/movie/search/thriller}" class="nav-link">Thriller</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

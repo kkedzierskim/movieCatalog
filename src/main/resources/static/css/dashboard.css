@@ -50,7 +50,7 @@ btn {
 }
 
 .sidebar .nav-link.active {
-    color: bl;
+    color: black;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -61,6 +61,50 @@ btn {
 .sidebar-heading {
     font-size: .75rem;
     text-transform: uppercase;
+}
+.profile-text {
+    color: #40514E;
+    margin: auto;
+    width: 500px;
+    text-align: center;
+}
+
+.my-picture {
+    position: absolute;
+    padding-top: 50px;
+    width: 40%;
+    height: 40%;
+    align-content: center;
+}
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: underline;
+    color: #66BFBF;
+    font-size: 200%;
+    padding-bottom: 20px;
+}
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 20px;
+}
+.contact-me {
+    margin: 100px auto;
+}
+.contact-button {
+    background: #78c9ff;
+    background-image: -webkit-linear-gradient(top, #78c9ff, #22658f);
+    background-image: -moz-linear-gradient(top, #78c9ff, #22658f);
+    background-image: -ms-linear-gradient(top, #78c9ff, #22658f);
+    background-image: -o-linear-gradient(top, #78c9ff, #22658f);
+    background-image: linear-gradient(to bottom, #78c9ff, #22658f);
+    -webkit-border-radius: 12;
+    -moz-border-radius: 12;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
 }
 
 /*
