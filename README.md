@@ -5,11 +5,11 @@ Live: https://heroku-movie-catalog.herokuapp.com/
 
 ![img1](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/master/src/main/resources/static/images/filmview.PNG)
 <br/>
-![img2](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/tree/master/src/main/resources/static/images/validation.PNG)
+![img2](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/master/src/main/resources/static/images/validation.PNG)
 <br/>
-![img3](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/tree/master/src/main/resources/static/images/browse.PNG)
+![img3](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/master/src/main/resources/static/images/browse.PNG)
 <br/>
-![img4](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/tree/master/src/main/resources/static/images/view-actors.PNG)
+![img4](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/master/src/main/resources/static/images/view-actors.PNG)
 
 ## Techonolgies included
 * [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
