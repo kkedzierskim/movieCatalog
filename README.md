@@ -3,16 +3,18 @@
 a web application that allows you to create and modify your own movie catalog. 
 Live: https://heroku-movie-catalog.herokuapp.com/  
 
-![img1](https://github.com/jklata/budget-app/blob/master/src/main/resources/static/images/img1.JPG)
+![img1](https://github.com/kkedzierskim/movieCatalog/tree/master/src/main/resources/static/images/filmview.PNG)
 <br/>
-![img2](https://github.com/jklata/budget-app/blob/master/src/main/resources/static/images/img2.JPG)
+![img2](https://github.com/kkedzierskim/movieCatalog/tree/master/src/main/resources/static/images/validation.PNG)
 <br/>
-![img4](https://github.com/jklata/budget-app/blob/master/src/main/resources/static/images/img4.JPG)
+![img3](https://github.com/kkedzierskim/movieCatalog/tree/master/src/main/resources/static/images/browse.PNG)
+<br/>
+![img4](https://github.com/kkedzierskim/movieCatalog/tree/master/src/main/resources/static/images/view-actors.PNG)
 
-## Użyte technologie
+## Techonolgies included
 * [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
 * [Maven](https://maven.apache.org/)
-* [Spring (Boot, MVC, Data JPA, Security)](https://spring.io)
+* [Spring (Boot, MVC, Data JPA)](https://spring.io)
 * [H2](https://www.h2database.com/html/main.html) 
 * [MySQL](https://www.mysql.com/) 
 * [Thymeleaf](https://www.thymeleaf.org/)
@@ -21,16 +23,18 @@ Live: https://heroku-movie-catalog.herokuapp.com/
 
 
 ## To-Do 
-[Szczegółowy plan pracy - Issues](https://github.com/jklata/budget-app/issues) 
-- [x] Schemat bazy danych
-- [x] Bootstrap - CSS
-- [x] Podstawowe kontrolery do obsługi podstron
-- [ ] Logika do raportowania i analizy transakcji
-- [ ] Import transakcji z pliku CSV - wyciąg z banku (mBank)
-- [ ] Eksport historii transakcji do CSV/PDF
-- [ ] Security
+- [ ] Pagination and Sorting
+- [ ] mobile compatible frontend
+- [ ] Spring Security
+- [ ] 
+
 
 currently implemented features:
--adding a movie via the form
--update a movie via the form
--remove movie from list
+- view/update/delete movies
+- view/update/delete actors
+- view/update/delete awards
+- searching movie by title
+- browsing movies by genre
+- backend validation of movieForm
+- image uploading
+- error handling
