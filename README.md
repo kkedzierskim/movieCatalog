@@ -1,6 +1,7 @@
 # Movie-catalog
 
 a web application that allows you to create and modify your own movie catalog. 
+<br/>
 Live: https://heroku-movie-catalog.herokuapp.com/  
 
 ![img1](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/master/src/main/resources/static/images/filmview.PNG)
@@ -25,8 +26,7 @@ Live: https://heroku-movie-catalog.herokuapp.com/
 ## To-Do 
 - [ ] Pagination and Sorting
 - [ ] mobile compatible frontend
-- [ ] Spring Security
-- [ ] 
+- [ ] Spring Security 
 
 
 currently implemented features:
