@@ -1,7 +1,5 @@
 package com.example.moviecatalog.controllers;
 
-
-import com.example.moviecatalog.commands.ActorCommand;
 import com.example.moviecatalog.commands.AwardCommand;
 import com.example.moviecatalog.commands.MovieCommand;
 import com.example.moviecatalog.services.AwardService;

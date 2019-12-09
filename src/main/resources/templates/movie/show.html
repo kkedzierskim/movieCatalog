@@ -12,7 +12,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
         <div class="container-fluid" style="margin-top: 20px">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-7 col-md-offset-3">
                     <div class="pannel-group">
                         <div class="panel panel-primary">
                             <div class="card">
@@ -32,7 +32,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <img th:src="@{'/movie/' + ${movie.id} + '/movieimage'}"
-                                                 width="200" height="200">
+                                                 width="200" height="300">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -40,13 +40,13 @@
                                             <h5>Release date:</h5>
                                         </div>
                                         <div class="col-md-3">
-                                            <p th:text="${(movie.releaseDate)}">30 min</p>
+                                            <p th:text="${(movie.releaseDate)}"></p>
                                         </div>
                                         <div class="col-md-3">
                                             <h5>Production:</h5>
                                         </div>
                                         <div class="col-md-3">
-                                            <p th:text="${movie.production}">DRAMA</p>
+                                            <p th:text="${movie.production}"></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -54,13 +54,13 @@
                                             <h5>Genre:</h5>
                                         </div>
                                         <div class="col-md-3">
-                                            <p th:text="${movie.genre}">30 min</p>
+                                            <p th:text="${movie.genre}"></p>
                                         </div>
                                         <div class="col-md-3">
                                             <h5>Boxoffice:</h5>
                                         </div>
                                         <div class="col-md-3">
-                                            <p th:text="${movie.boxOffice}">box office</p>
+                                            <p th:text="${movie.boxOffice + '$'}">box office</p>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                             <li th:remove="all">actor 2</li>
                                             <li th:each="actor : ${movie.actors}"
                                                 th:text="${(actor.getFirstName() +
-                                        ' ' + actor.getLastName())}">actor first name actor last name
+                                        ' ' + actor.getLastName()) + ' starred as ' + actor.getFilmName()}">actor first name actor last name
                                             </li>
                                         </ul>
                                     </div>

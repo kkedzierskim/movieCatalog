@@ -1,6 +1,6 @@
 
 body {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-family: Open Sans, sans-serif;
 }
 
@@ -15,7 +15,7 @@ body {
  */
 
 .sidebar {
-    font-size: 1rem;
+    font-size: 2rem;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -76,9 +76,8 @@ btn {
     height: 40%;
     align-content: center;
 }
+
 h2 {
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: underline;
     color: #66BFBF;
     font-size: 200%;
     padding-bottom: 20px;
@@ -103,6 +102,7 @@ h3 {
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
     font-size: 20px;
+    margin-top: 20px;
     padding: 5px 10px 5px 10px;
     text-decoration: none;
 }
