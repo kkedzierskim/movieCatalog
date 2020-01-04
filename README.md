@@ -1,8 +1,5 @@
 # Movie-catalog
 
-a web application that allows you to create and modify your own movie catalog. 
-<br/>
-Live: https://heroku-movie-catalog.herokuapp.com/  
 
 ![img1](https://raw.githubusercontent.com/kkedzierskim/movieCatalog/master/src/main/resources/static/images/filmview.PNG)
 <br/>
